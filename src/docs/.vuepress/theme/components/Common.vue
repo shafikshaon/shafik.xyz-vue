@@ -30,7 +30,6 @@
         <Password v-if="!isHasPageKey" :isPage="true"></Password>
         <div v-else>
           <slot></slot>
-          <Valine :isComment="isComment"></Valine>
         </div>
         
         <BackToTop></BackToTop>
@@ -45,12 +44,11 @@ import Sidebar from '@theme/components/Sidebar.vue'
 import { resolveSidebarItems } from '../util'
 import Password from '@theme/components/Password'
 import Loading from '@theme/components/Loading'
-import Valine from '@theme/components/Valine/'
 import BackToTop from "@theme/components/BackToTop"
 import { setTimeout } from 'timers';
 
 export default {
-  components: { Sidebar, Navbar, Password, Valine, BackToTop, Loading },
+  components: { Sidebar, Navbar, Password, BackToTop, Loading },
 
   props: ['sidebar', 'isComment'],
 

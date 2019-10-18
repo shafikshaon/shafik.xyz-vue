@@ -1,5 +1,5 @@
 <template>
-  <main class="page" :class="recoShow?'reco-show': 'reco-hide'">
+  <main class="page" :class="themeShow?'theme-show': 'theme-hide'">
     <slot name="top"/>
 
     <div class="page-title" v-if="!(isTimeLine)">
@@ -81,7 +81,7 @@ export default {
 
   data () {
     return {
-      recoShow: false
+      themeShow: false
     }
   },
 
@@ -144,15 +144,14 @@ export default {
 
     editLinkText () {
       return (
-        this.$themeLocaleConfig.editLinkText
-        || this.$themeConfig.editLinkText
+        this.$themeConfig.editLinkText
         || `Edit this page`
       )
     }
   },
 
   mounted () {
-    this.recoShow = true
+    this.themeShow = true
 
     const keys = this.$frontmatter.keys
     if (!keys) {
@@ -165,21 +164,6 @@ export default {
 
   methods: {
     createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
-      const bitbucket = /bitbucket.org/
-      if (bitbucket.test(repo)) {
-        const base = outboundRE.test(docsRepo)
-          ? docsRepo
-          : repo
-        return (
-          base.replace(endingSlashRE, '')
-           + `/src`
-           + `/${docsBranch}/`
-           + (docsDir ? docsDir.replace(endingSlashRE, '') + '/' : '')
-           + path
-           + `?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
-        )
-      }
-
       const base = outboundRE.test(docsRepo)
         ? docsRepo
         : `https://github.com/${docsRepo}`
@@ -246,6 +230,8 @@ function flatten (items, res) {
     padding-top 1rem
     padding-bottom 1rem
     overflow auto
+    bottom 0;
+    width 100%;
     .edit-link
       display inline-block
       a
@@ -260,10 +246,10 @@ function flatten (items, res) {
       .time
         font-weight 400
         color #aaa
-  &.reco-hide.page {
+  &.theme-hide.page {
     load-start()
   }
-  &.reco-show.page {
+  &.theme-show.page {
     load-end(0.08s)
   }          
 

@@ -15,17 +15,6 @@ module.exports = {
                 "link": "/timeLine/",
                 "icon": "reco-date"
             },
-            {
-                "text": "Contact",
-                "icon": "reco-message",
-                "items": [
-                    {
-                        "text": "GitHub",
-                        "link": "https://github.com/recoluan",
-                        "icon": "reco-github"
-                    },
-                ]
-            }
         ],
         "type": "blog",
         "blogConfig": {
@@ -38,8 +27,9 @@ module.exports = {
                 "text": "Tag"
             }
         },
-        fourOhFour:"/404.jpeg",
-        "logo": "/head.png",
+        fourOhFour: "/404.jpeg",
+        "logo": "/logo.png",
+        "personalImage": "/dp.jpg",
         "search": true,
         "searchMaxSuggestions": 10,
         "searchPlaceholder": 'Search...',
@@ -47,7 +37,6 @@ module.exports = {
         "lastUpdated": "Last Updated",
         "author": "Shafikur Rahman Shaon",
         "record": "0",
-        "startYear": "2019",
         "smoothScroll": true,
         valineConfig: {
             visitor: true
@@ -56,14 +45,14 @@ module.exports = {
         repo: 'shafikshaon/shafik.xyz-vue',
         // Customising the header label
         // Defaults to "GitHub"/"GitLab"/"Bitbucket" depending on `themeConfig.repo`
-        repoLabel: 'Contribute!',
+        repoLabel: 'Github!',
 
         // Optional options for generating "Edit this page" link
 
         // if your docs are in a different repo from your main project:
         docsRepo: 'shafikshaon/shafik.xyz-vue',
         // if your docs are not at the root of the repo:
-        docsDir: 'docs',
+        docsDir: 'src/docs',
         // if your docs are in a specific branch (defaults to 'master'):
         docsBranch: 'master',
         // defaults to false, set to true to enable
@@ -73,7 +62,7 @@ module.exports = {
         // default value is true. Allows to hide prev page links on all pages
         prevLinks: true,
         // custom text for edit link. Defaults to "Edit this page"
-        editLinkText: 'Help us improve this page!'
+        editLinkText: 'Help me improve this page!'
     },
     "markdown":
         {
@@ -100,20 +89,27 @@ module.exports = {
                     notFoundPath: '/404.html',
                 },
             ],
+            [
+                "@vuepress/pwa", {
+                serviceWorker: true,
+                updatePopup: true,
+                popupComponent: 'SWUpdatePopup',
+            },
+            ],
         ],
     "head": [
         ['link', {rel: 'apple-touch-icon', sizes: '180x180', href: '/logo.png'}],
         ['link', {rel: 'icon', sizes: '32x32', href: '/logo.png'}],
         ['link', {rel: 'icon', sizes: '16x16', href: '/logo.png'}],
         ['link', {rel: 'manifest', href: '/site.webmanifest'}],
-        ['link', {rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#5bbad5'}],
+        // ['link', {rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#5bbad5'}],
         ['meta', {name: 'msapplication-TileColor', content: '#da532c'}],
         ['meta', {name: 'theme-color', content: '#ffffff'}],
         [
             "link",
             {
                 "rel": "icon",
-                "href": "/favicon.ico"
+                "href": "/favicon.png"
             }
         ],
         [

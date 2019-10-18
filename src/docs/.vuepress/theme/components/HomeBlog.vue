@@ -15,7 +15,7 @@
         :isHome="true"
         :currentPage="1"></note-abstract>
       <div class="info-wrapper">
-         <img class="personal-img" :src="$withBase($frontmatter.faceImage || $themeConfig.logo)" alt="hero"> 
+         <img class="personal-img" :src="$themeConfig.personalImage" alt="hero">
          <h3 class="name" v-if="$themeConfig.author || $site.title">{{ $themeConfig.author || $site.title }}</h3>
          <div class="num">
            <div>
@@ -65,22 +65,18 @@
           <span v-if="$themeConfig.author || $site.title">{{ $themeConfig.author || $site.title }}</span>
         </a>
       </span>
-      <span>
-        <AccessNumber idVal="/"></AccessNumber>
-      </span>
     </div>
   </div>
 </template>
 
 <script>
 import NavLink from "@theme/components/NavLink/";
-import AccessNumber from '@theme/components/Valine/AccessNumber'
 import NoteAbstract from '@theme/components/NoteAbstract.vue'
 import mixin from '@theme/mixins/index.js'
 
 export default {
   mixins: [mixin],
-  components: { NavLink, AccessNumber, NoteAbstract },
+  components: { NavLink, NoteAbstract },
   data () {
     return {
       recoShow: false,
@@ -93,7 +89,7 @@ export default {
       let posts = this.$site.pages
       posts = posts.filter(item => {
         const { home, isTimeLine, date } = item.frontmatter
-        return !(home == true || isTimeLine == true || date === undefined)
+        return !(home === true || isTimeLine === true || date === undefined)
       })
       posts.sort((a, b) => {
         return this._getTimeNum(b) - this._getTimeNum(a)
@@ -159,10 +155,10 @@ export default {
       let pages = this.$site.pages
       pages = pages.filter(item => {
         const { home, isTimeLine, date } = item.frontmatter
-        return !(home == true || isTimeLine == true || date === undefined)
+        return !(home === true || isTimeLine === true || date === undefined)
       })
       // reverse()是为了按时间最近排序排序
-      this.pages = pages.length == 0 ? [] : pages
+      this.pages = pages.length === 0 ? [] : pages
     },
     getPagesByTags (currentTag) {
       const base = this.$site.base
@@ -181,7 +177,7 @@ export default {
 
 .home-blog {
   padding: $navbarHeight 0 0;
-  margin: 0px auto;
+  margin: 0 auto;
 
   .hero {
     figure {
@@ -227,6 +223,7 @@ export default {
         margin 2rem auto
         width 8rem
         height 8rem
+        border-radius 50%
       }
       .name {
         text-align center

@@ -44,19 +44,15 @@
           <span v-if="$themeConfig.author || $site.title">{{ $themeConfig.author || $site.title }}</span>
           </a>
       </span>
-      <span>
-        <AccessNumber idVal="/"></AccessNumber>
-      </span>
     </div>
   </div>
 </template>
 
 <script>
 import NavLink from "@theme/components/NavLink/";
-import AccessNumber from '@theme/components/Valine/AccessNumber'
 
 export default {
-  components: { NavLink, AccessNumber },
+  components: { NavLink },
   data () {
     return {
       recoShow: false
