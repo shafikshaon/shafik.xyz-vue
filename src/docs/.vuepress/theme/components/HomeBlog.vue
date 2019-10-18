@@ -20,15 +20,15 @@
          <div class="num">
            <div>
              <h3>{{getPagesLength}}</h3>
-             <h6>文章</h6>
+             <h6>Articles</h6>
            </div>
            <div>
              <h3>{{$tags.length}}</h3>
-             <h6>标签</h6>
+             <h6>Tags</h6>
            </div>
          </div>
          <hr>
-         <h4><i class="iconfont reco-category"></i> 分类</h4>
+         <h4><i class="iconfont reco-category"></i> Category</h4>
          <ul class="category-wrapper">
           <li class="category-item" v-for="(item, index) in this.$categories.list" :key="index">
             <router-link :to="item.path">
@@ -38,7 +38,7 @@
           </li>
         </ul>
         <hr>
-        <h4><i class="iconfont reco-tag"></i> 标签</h4>
+        <h4><i class="iconfont reco-tag"></i> Tags</h4>
         <div class="tags">
           <span 
             v-for="(item, index) in tags" 
@@ -56,16 +56,12 @@
         <i class="iconfont reco-theme"></i>
         <a target="blank" href="https://vuepress-theme-reco.recoluan.com">VuePress-theme-reco</a>
       </span>
-      <span v-if="$themeConfig.record">
-        <i class="iconfont reco-beian"></i>
-        <a>{{ $themeConfig.record }}</a>
-      </span>
       <span>
-        <i class="iconfont reco-copyright"></i>
+        &copy
         <a>
-          <span v-if="$themeConfig.startYear">{{ $themeConfig.startYear }} - </span>
+          <span v-if="$themeConfig.startYear"> </span>
           {{ year }}
-          &nbsp;&nbsp;
+          &nbsp;&nbsp -
           <span v-if="$themeConfig.author || $site.title">{{ $themeConfig.author || $site.title }}</span>
         </a>
       </span>
