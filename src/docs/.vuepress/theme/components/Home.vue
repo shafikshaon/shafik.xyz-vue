@@ -1,19 +1,6 @@
 <template>
     <div class="home" :class="recoShow?'reco-show': 'reco-hide'">
-        <div class="hero">
-            <img v-if="data.heroImage" :style="heroImageStyle" :src="$withBase(data.heroImage)" alt="hero">
 
-            <h1 v-if="data.isShowTitleInHome !== false">{{ data.heroText || $title || '午后南杂' }}</h1>
-
-            <p class="description">{{ data.tagline || $description || 'Welcome to your vuePress-theme-reco site' }}</p>
-            <p class="huawei" v-if="$themeConfig.huawei === true"><i class="iconfont reco-huawei"
-                                                                     style="color: #fc2d38"></i>&nbsp;&nbsp;&nbsp;华为，为中华而为之！
-            </p>
-
-            <p class="action" v-if="data.actionText && data.actionLink">
-                <NavLink class="action-button" :item="actionLink"/>
-            </p>
-        </div>
 
         <div class="features" v-if="data.features && data.features.length">
             <div v-for="(feature, index) in data.features" :key="index" class="feature">
@@ -25,10 +12,6 @@
         <Content class="home-center" custom/>
 
         <div class="footer">
-      <span>
-        <i class="iconfont reco-theme"></i>
-        <a target="blank" href="https://vuepress-theme-reco.recoluan.com">VuePress-theme-reco</a>
-      </span>
             <!-- <span>
               <i class="iconfont reco-other"></i>
               <a>{{ $themeConfig.author || $site.title }}</a>
@@ -40,10 +23,7 @@
             <span>
         <i class="iconfont reco-copyright"></i>
         <a>
-          <span v-if="$themeConfig.startYear">{{ $themeConfig.startYear }} - </span>
-          {{ year }}
-          &nbsp;&nbsp;
-          <span v-if="$themeConfig.author || $site.title">{{ $themeConfig.author || $site.title }}</span>
+          <span v-if="$themeConfig.author || $site.title">{{ year }}&nbsp - &nbsp{{ $themeConfig.author || $site.title }}</span>
           </a>
       </span>
         </div>
