@@ -1,0 +1,15 @@
+{
+    "name": "Shafik",
+    "short_name": "shafik",
+    "icons": [
+        {
+            "src": "/logo.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "./index.html",
+    "theme_color": "#4abf8a",
+    "background_color": "#edcb21",
+    "display": "standalone"
+}
