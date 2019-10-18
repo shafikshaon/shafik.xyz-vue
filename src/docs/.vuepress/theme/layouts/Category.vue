@@ -133,7 +133,7 @@ export default {
           line-height 1.2rem
           border-radius 50%
           background #eee
-          font-size .4rem
+          font-size 1rem
         }
       }
     }
