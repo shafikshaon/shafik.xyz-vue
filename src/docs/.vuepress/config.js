@@ -1,7 +1,7 @@
 module.exports = {
     "title": "Shafik",
     "description": "Personal blog",
-    "dest": "./public",
+    "dest": "./dist",
     "theme": "reco",
     "themeConfig": {
         "nav": [
